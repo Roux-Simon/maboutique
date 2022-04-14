@@ -49,5 +49,14 @@ changeDisponible(product :any) {
        this.products = data;
        console.log("yes")
      }) ;
+
+     
+}
+search_Keyword(search: any ){
+
+  this.ps.search_Keyword(search.value).subscribe(data => {
+    this.products = data;
+    console.log("keyword ok")
+  }) ;
 }
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -37,5 +38,11 @@ search_Price(price:any) {
 
 
 }
+search_Keyword(search: any){
 
+let keyword = search.value;
+  return this.http.get("http://localhost:3000/products?q=" + keyword);
+
+
+}
 }

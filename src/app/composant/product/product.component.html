@@ -33,11 +33,11 @@
              <div class="col-6">
                  <h6 class="text-info text-center">Search by keyword</h6>
             <!-- *******  Début formulaire keyword **********  -->
-            <form>
+            <form (ngSubmit)="search_Keyword(keyword)" #keyword="ngForm">
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter keyword">    
+                            <input type="text" name ="search" class="form-control" ngModel required  placeholder="Enter keyword">    
                             </div>
                         </div>
                      
@@ -54,9 +54,9 @@
         </div>
 
 
-        <section class="row">
+        <section class="row " >
             <div class="text-center ml-4 mb-4 pl-4 pb-4 bg-success" *ngIf="afficher">le produit est supprimé</div>
-            <div class="col-4"*ngFor="let p of products">
+            <div class="col-4 " *ngFor="let p of products">
                 
                 <img src="{{p.image}}" class="card-img-top" alt="...">
                 <div class="card-body"> 
