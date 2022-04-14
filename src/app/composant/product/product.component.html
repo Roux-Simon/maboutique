@@ -1,0 +1,81 @@
+<div class="container" >
+    <h1 class="text-center text-warning mt-4 mb-4">la liste de mes produits : {{products.length}}</h1>
+
+    <div class="row">
+
+        <div class="col-6">
+
+            <h6 class="text-info text-center">Search by price range</h6>
+            <!-- *******  Début formulaire price range **********  -->
+            <form>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="number" class="form-control" placeholder="Enter prix min">    
+                            </div>
+                        </div>
+                        <div class="col-4">  
+                            <div class="form-group">
+                            <input type="number" class="form-control"  placeholder="entre prix max">
+                            </div>
+                        </div>
+                        <div class="col-4"> 
+                            <button type="submit" class="btn btn-primary">Search by price range</button>
+                        </div>
+                    </div>
+       
+              </form>
+            <!-- *******  Fin formulaire price range **********  -->
+
+        </div>
+        <div class="row">
+             <div class="col-6">
+                 <h6 class="text-info text-center">Search by keyword</h6>
+            <!-- *******  Début formulaire keyword **********  -->
+            <form>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter keyword">    
+                            </div>
+                        </div>
+                     
+                        <div class="col-6"> 
+                            <button type="submit" class="btn btn-primary">Search by keyword</button>
+                        </div>
+                    
+                </div>
+             </form>
+  
+            <!-- *******  Fin formulaire keyword **********  -->
+
+          </div>
+        </div>
+
+
+        <section class="row">
+            <div class="text-center ml-4 mb-4 pl-4 pb-4 bg-success" *ngIf="afficher">le produit est supprimé</div>
+            <div class="col-4"*ngFor="let p of products">
+                <img src="{{p.image}}" class="card-img-top" alt="...">
+                <div class="card-body"> 
+                    <h5 class ="card-title">{{p.title}} </h5> 
+                    <p class="card-text"> {{p.description}}</p>
+                    
+
+      
+                 <div class="row">
+                    <div class="col-4"><a href="#" class="btn btn-primary"> {{p.price}} €</a></div>
+                    <div class="col-4"><i class="fa-solid "
+                        [ngClass]="{'text-success fa-thumbs-up' :p.available,  'text-danger fa-thumbs-down': !p.available}"
+                         (click)="changeDisponible(p)">           
+                        </i></div>
+                    <div class="col-4"><button (click)="supprimer(p.id)">Delete</button></div>
+
+                 </div>
+
+                </div>
+            </div>
+        </section>
+
+</div>
+
