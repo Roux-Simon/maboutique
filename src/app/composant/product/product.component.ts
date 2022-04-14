@@ -9,6 +9,7 @@ import { ProduitsService } from 'src/app/services/produits.service';
 export class ProductComponent implements OnInit {
 products: any;
 afficher: boolean =false;
+
   constructor(private ps: ProduitsService ) { }
 
   ngOnInit(): void {
@@ -40,5 +41,13 @@ changeDisponible(product :any) {
 
   })
 
+}
+
+  search_Price(price: any ){
+
+     this.ps.search_Price(price).subscribe(data => {
+       this.products = data;
+       console.log("yes")
+     }) ;
 }
 }

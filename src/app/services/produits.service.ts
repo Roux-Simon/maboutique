@@ -30,4 +30,12 @@ disponible(product: any) {
 
 }
 
+search_Price(price:any) {
+  let min = price.value.min;
+  let max = price.value.max;
+  return this.http.get("http://localhost:3000/products?price_gte="+ min + "&price_lte=" + max);
+
+
+}
+
 }
