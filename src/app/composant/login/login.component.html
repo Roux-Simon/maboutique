@@ -3,11 +3,14 @@
     <!-- Mon titre -->
     
     <h1 class="text-center text-info mt-4 mb-4">Connexion ! </h1>
-    <!-- Formulaire debut -->
+    <div class="bg-warning p-4" *ngIf="message">Les identifiants sont incorrect</div>
     
+    <!-- Formulaire debut -->
+
+
     <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
         <div class="form-group">
-          <label >username</label>
+          <label >Username</label>
           <input type="text" class="form-control" name="username"  ngModel required placeholder="Entrer nom du produit">
          
         </div>
