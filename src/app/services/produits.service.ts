@@ -40,9 +40,16 @@ search_Price(price:any) {
 }
 search_Keyword(search: any){
 
-let keyword = search.value;
-  return this.http.get("http://localhost:3000/products?q=" + keyword);
+let keyword = search.keyword
+  return this.http.get("http://localhost:3000/products?q=" + keyword );
 
 
 }
+
+final_Product(products:any){
+return this.http.patch("http://localhost:3000/products/", products );
+
+}
+
+
 }

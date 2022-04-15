@@ -10,6 +10,18 @@ export class ProductComponent implements OnInit {
 products: any;
 afficher: boolean =false;
 
+
+
+product2 = {
+  title:"",
+  description :"",
+  image:"",
+  price: 0,
+  available: false
+
+
+}
+
   constructor(private ps: ProduitsService ) { }
 
   ngOnInit(): void {
@@ -59,4 +71,28 @@ search_Keyword(search: any ){
     console.log("keyword ok")
   }) ;
 }
+
+edit_Product (products:any) {
+
+  this.product2 =products;
+  
+
+  }
+  
+
+
+  
 }
+
+  
+
+
+
+
+
+
+
+
+
+
+

@@ -21,6 +21,8 @@ export class AddProductComponent implements OnInit {
     this.ps.Save_prod(produit.value).subscribe( ()=> {
       console.log("saved success")
     }) ;
+
+    
  
   }
 

@@ -1,5 +1,5 @@
 <div class="container" >
-    <h1 class="text-center text-warning mt-4 mb-4">la liste de mes produits : {{products.length}}</h1>
+    <h1 class="text-center text-warning mt-4 mb-4"> la liste de mes produits : {{products.length}}</h1>
 
     <div class="row">
 
@@ -33,11 +33,11 @@
              <div class="col-6">
                  <h6 class="text-info text-center">Search by keyword</h6>
             <!-- *******  Début formulaire keyword **********  -->
-            <form (ngSubmit)="search_Keyword(keyword)" #keyword="ngForm">
+            <form (ngSubmit)="search_Keyword(searchkeyword)" #searchkeyword="ngForm">
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <input type="text" name ="search" class="form-control" ngModel required  placeholder="Enter keyword">    
+                            <input type="text" name ="keyword" class="form-control" ngModel required  placeholder="Enter keyword">    
                             </div>
                         </div>
                      
@@ -57,7 +57,7 @@
         <section class="row " >
             <div class="text-center ml-4 mb-4 pl-4 pb-4 bg-success" *ngIf="afficher">le produit est supprimé</div>
             <div class="col-4 " *ngFor="let p of products">
-                
+               
                 <img src="{{p.image}}" class="card-img-top" alt="...">
                 <div class="card-body"> 
                     <h5 class ="card-title">{{p.title}} </h5> 
@@ -72,6 +72,61 @@
                          (click)="changeDisponible(p)">           
                         </i></div>
                     <div class="col-4"><button (click)="supprimer(p.id)">Delete</button></div>
+
+
+                                        <!-- Button trigger modal -->
+
+                       
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"  (click)= "edit_Product(p) ">
+                    Modifier les données
+                    </button>
+                    
+                    <!-- Modal -->
+
+                   
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modification des données</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                            
+                                                    
+                                <div class="form-group">
+                                    <label >Nom de votre produit</label>
+                                    <input type="text" class="form-control" [(ngModel)]="product2.title"  placeholder="Entrer nom du produit" name="title">                                 
+                                  </div>
+                              
+                                <div class="form-group">
+                                    <label> Description du produit </label>
+                                    <input type="text" class="form-control"  [(ngModel)]="product2.description"  placeholder="Entrer description" name="description">
+                                </div>
+                              
+                                <div class="form-group">
+                                      <label> Image du produit </label>
+                                      <input type="text" class="form-control" [(ngModel)]="product2.image" placeholder="Entrer lien de l'image"  name="image">
+                                </div>
+                              
+                                <div class="form-group">
+                                      <label> Prix du produit </label>
+                                      <input type="text" class="form-control" [(ngModel)]="product2.price" placeholder="Entrer le prix"  name="price">
+                                </div>
+
+
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                            <button type="button" class="btn btn-primary"   >Sauvegarder</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                      
+             <!-- Fin Modal -->  
 
                  </div>
 

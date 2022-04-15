@@ -8,6 +8,8 @@ import { AddProductComponent } from './composant/add-product/add-product.compone
 import { HomePageComponent } from './composant/home-page/home-page.component';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './composant/login/login.component';
+
 
 
 @NgModule({
@@ -15,7 +17,11 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     ProductComponent,
     AddProductComponent,
-    HomePageComponent
+    HomePageComponent,
+    LoginComponent
+    
+    
+
   ],
   imports: [
     BrowserModule,
